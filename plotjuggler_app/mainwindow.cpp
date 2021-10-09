@@ -887,6 +887,11 @@ void MainWindow::onPlotAdded(PlotWidget* plot)
   // TODO connect(plot, &PlotWidget::swapWidgetsRequested, this,
   // &MainWindow::onSwapPlots);
 
+  connect( plot, &PlotWidget::plotCreated,
+                   this, [=](std::string name) {
+            _curvelist_widget->addCurve( name );
+    });
+
   connect(this, &MainWindow::dataSourceRemoved, plot, &PlotWidget::onSourceDataRemoved);
 
   connect(plot, &PlotWidget::curveListChanged, this, [this]() {

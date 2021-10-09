@@ -7,6 +7,7 @@
 
 using namespace PJ;
 
+
 // wrapper to Timeseries inclduing a time offset
 class QwtSeriesWrapper : public QwtSeriesData<QPointF>
 {
@@ -36,12 +37,16 @@ public:
   virtual RangeOpt getVisualizationRangeY(Range range_X) = 0;
 
   virtual std::optional<QPointF> sampleFromTime(double t) = 0;
+
 };
+
 
 class QwtTimeseries : public QwtSeriesWrapper
 {
 public:
   QwtTimeseries(const PlotData* data) : QwtSeriesWrapper(data), _ts_data(data)
+
+
   {
   }
 
@@ -72,13 +77,23 @@ public:
 
   void setAlias(QString alias);
 
+
+
+
+
+  PlotData _dst_data; //TODO: re-write so _dst_data can remain protected (made public so plotwidget can create new series from transformed data)
+
+
 protected:
+
   QString _alias;
-  PlotData _dst_data;
+
   const PlotData* _src_data;
   TransformFunction_SISO::Ptr _transform;
 };
 
 //---------------------------------------------------------
+
+
 
 #endif  // PLOTDATA_H

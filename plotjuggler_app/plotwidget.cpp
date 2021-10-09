@@ -186,6 +186,9 @@ void PlotWidget::buildActions()
   _action_saveToFile = new QAction("&Save plot to file", this);
   connect(_action_saveToFile, &QAction::triggered, this, &PlotWidget::on_savePlotToFile);
 
+  _action_saveNewSeries = new QAction("Save as new series",this);
+  connect(_action_saveNewSeries,&QAction::triggered,this,&PlotWidget::onSaveCurves);
+
   _action_copy = new QAction("&Copy", this);
   connect(_action_copy, &QAction::triggered, this, &PlotWidget::on_copyAction_triggered);
 
@@ -240,6 +243,7 @@ void PlotWidget::canvasContextMenuTriggered(const QPoint& pos)
   menu.addAction(_action_paste);
   menu.addAction(_action_image_to_clipboard);
   menu.addAction(_action_saveToFile);
+  menu.addAction(_action_saveNewSeries);
 
   // check the clipboard
   QClipboard* clipboard = QGuiApplication::clipboard();
@@ -1445,4 +1449,31 @@ void PlotWidget::changeBackgroundColor(QColor color)
     qwtPlot()->setCanvasBackground(color);
     replot();
   }
+}
+
+void PlotWidget::onSaveCurves(){
+
+    int visible = 0;
+
+      for (auto& it : curveList())
+      {
+        if (it.curve->isVisible()){
+          visible++;
+
+          const auto& curve_name = it.src_name;
+
+          auto data_it = curveFromTitle(QString::fromStdString(curve_name));
+          //get the timeseries (TransformedTimeseries)
+          auto ts = dynamic_cast<TransformedTimeseries*>(data_it->curve->data());
+          if(ts && ts->transform())
+          {
+              auto& out_data = _mapped_data.getOrCreateNumeric( curve_name + "_copy" );
+              out_data.clone(ts->_dst_data);
+              emit plotCreated(curve_name + "_copy");
+          }
+
+        }
+
+      }
+
 }

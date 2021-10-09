@@ -87,6 +87,7 @@ signals:
   void curvesDropped();
   void splitHorizontal();
   void splitVertical();
+  void plotCreated(std::string plot_name);
 
 public slots:
 
@@ -153,6 +154,7 @@ private:
   QAction* _action_zoomOutHorizontally;
   QAction* _action_zoomOutVertically;
   QAction* _action_saveToFile;
+  QAction* _action_saveNewSeries;
   QAction* _action_copy;
   QAction* _action_paste;
   QAction* _action_image_to_clipboard;
@@ -186,6 +188,9 @@ private:
 
   QwtSeriesWrapper* createTimeSeries(const QString& transform_ID,
                                      const PlotData* data) override;
+
+
+  void onSaveCurves();
 
   double _time_offset;
 
