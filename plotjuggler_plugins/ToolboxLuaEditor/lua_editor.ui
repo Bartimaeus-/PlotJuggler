@@ -45,7 +45,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -64,7 +64,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="textGlobal">
+            <widget class="ScriptEditor" name="textGlobal">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
@@ -99,7 +99,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPlainTextEdit" name="textFunction">
+            <widget class="ScriptEditor" name="textFunction">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
@@ -296,7 +296,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="textLibrary">
+        <widget class="ScriptEditor" name="textLibrary">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -397,6 +397,13 @@ end
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ScriptEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>script_editor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
