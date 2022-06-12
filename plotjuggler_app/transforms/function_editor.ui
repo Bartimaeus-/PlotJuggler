@@ -978,7 +978,7 @@
   <customwidget>
    <class>ScriptEditor</class>
    <extends>QPlainTextEdit</extends>
-   <header>script_editor.h</header>
+   <header>PlotJuggler/script_editor.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
