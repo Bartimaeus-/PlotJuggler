@@ -100,6 +100,7 @@ endif()
 target_link_libraries(plotjuggler
     ${QT_LINK_LIBRARIES}
     colorwidgets
+    scripteditor
     lua_static
     qt_advanced_docking
     plotjuggler_base

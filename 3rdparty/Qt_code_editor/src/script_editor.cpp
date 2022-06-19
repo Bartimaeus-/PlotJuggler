@@ -48,7 +48,7 @@
 **
 ****************************************************************************/
 
-#include "PlotJuggler/script_editor.h"
+#include "script_editor.h"
 
 #include <QPainter>
 #include <QTextBlock>

@@ -145,6 +145,7 @@ include_directories(
     ./3rdparty/qwt/src
     ./3rdparty/sol
     ./3rdparty/lua-5.4.3/src
+    ./3rdparty/Qt_code_editor/include
 )
 
 #########################  BASE library  ####################################
@@ -156,7 +157,6 @@ qt5_wrap_cpp(PLOTJUGGLER_BASE_MOCS
   plotjuggler_base/include/PlotJuggler/transform_function.h
   plotjuggler_base/include/PlotJuggler/plotwidget_base.h
   plotjuggler_base/include/PlotJuggler/lua_highlighter.h
-  plotjuggler_base/include/PlotJuggler/script_editor.h
 )
 
 add_library( plotjuggler_base
@@ -171,7 +171,6 @@ add_library( plotjuggler_base
      plotjuggler_base/src/timeseries_qwt.cpp
      plotjuggler_base/src/reactive_function.cpp
      plotjuggler_base/src/lua_highlighter.cpp
-     plotjuggler_base/src/script_editor.cpp
      )
 # target_link_libraries(plotjuggler_base plotjuggler_qwt)
 
@@ -258,6 +257,7 @@ endif()
 add_subdirectory( 3rdparty/color_widgets )
 add_subdirectory( 3rdparty/Qt-Advanced-Docking )
 add_subdirectory( 3rdparty/lua-5.4.3 )
+add_subdirectory( 3rdparty/Qt_code_editor )
 
 add_subdirectory( plotjuggler_app )
 

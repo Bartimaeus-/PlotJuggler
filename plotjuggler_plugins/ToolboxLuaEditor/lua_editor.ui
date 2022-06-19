@@ -401,7 +401,7 @@ end
   <customwidget>
    <class>ScriptEditor</class>
    <extends>QPlainTextEdit</extends>
-   <header>PlotJuggler/script_editor.h</header>
+   <header>script_editor.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
