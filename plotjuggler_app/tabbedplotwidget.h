@@ -105,6 +105,8 @@ private:
 
   // void printPlotsNames();
 
+  int _middleClickIndex = -1;
+
 protected:
   virtual bool eventFilter(QObject* obj, QEvent* event) override;
 
