@@ -364,8 +364,11 @@ bool TabbedPlotWidget::eventFilter(QObject* obj, QEvent* event)
 
       int index = tab_bar->tabAt(mouse_event->pos());
       tab_bar->setCurrentIndex(index);
-
-      if (mouse_event->button() == Qt::RightButton)
+      
+      if(mouse_event->button() == Qt::MiddleButton){
+          on_tabWidget_tabCloseRequested(tab_bar->currentIndex());
+      }
+      else if (mouse_event->button() == Qt::RightButton)
       {
         // QMenu* submenu = new QMenu("Move tab to...");
         // _tab_menu->addMenu(submenu);
